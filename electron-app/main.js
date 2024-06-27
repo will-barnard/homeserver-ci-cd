@@ -26,18 +26,19 @@ const createWindow = () => {
   
     win.loadFile('index.html');
 }  
-
 app.whenReady().then(() => {
     createWindow();
 })
 
+ipcMain.on("will", () => {
+    sendFile(api.willFrontend, api.willDist, true)
+});
 ipcMain.on("kjfe", () => {
     sendFile(api.kitchenJamFrontend, api.kitchenJamDist, true)
 });
 ipcMain.on("kjbe", () => {
     sendFile(api.kitchenJamBackend, api.kitchenJamJar, false)
 });
-
 ipcMain.on("ttfe", () => {
     sendFile(api.trainTrackerFrontend, api.trainTrackerDist, true)
 });
@@ -50,13 +51,25 @@ ipcMain.on("ttls", () => {
 ipcMain.on("ttrs", () => {
     sendFile(api.trainTrackerRunService, api.trainTrackerRunServiceJar, false)
 });
-
 ipcMain.on("vvfe", () => {
-    sendFile(api.virtualVIbesFrontend, api.virtualVibesDist, true)
+    sendFile(api.virtualVibesFrontend, api.virtualVibesDist, true)
 });
 ipcMain.on("vvbe", () => {
     sendFile(api.virtualVibesBackend, api.virtualVibesJar, false)
 });
+ipcMain.on("cash", () => {
+    sendFile(api.crittersEndpoint, api.crittersDist, true)
+});
+ipcMain.on("bttbfe", () => {
+    sendFile(api.bttbFrontend, api.bttbDist, true)
+});
+ipcMain.on("bttbbe", () => {
+    sendFile(api.bttbBackend, api.bttbJar, false)
+});
+ipcMain.on("antonio", () => {
+    sendFile(api.antonioFrontend, api.antonioDist, true)
+});
+
 
 function sendFile(endpoint, file, zip) {
     if (zip) {

@@ -32,6 +32,21 @@ public class FileUploadController {
 		this.storageService = storageService;
 	}
 
+	@PostMapping("/will-barnard")
+	@ResponseBody
+	public void willBarnardUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getWillBarnard() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getWillBarnard());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated kitchen jam frontend");
+	}
+
 	@PostMapping("/kitchen-jam-frontend")
 	@ResponseBody
 	public void kitchenJamDistUpload(@RequestParam("file") MultipartFile file) {

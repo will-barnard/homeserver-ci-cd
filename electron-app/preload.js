@@ -10,11 +10,10 @@ window.addEventListener('DOMContentLoaded', () => {
       replaceText(`${dependency}-version`, process.versions[dependency])
     }
 
-    let test = document.getElementById("test");
-    test.addEventListener("click", () => {
-        ipcRenderer.send("testSend");
+    let will = document.getElementById("will");
+    will.addEventListener("click", () => {
+        ipcRenderer.send("will");
     })
-
     let kitchenJamFrontend = document.getElementById("kjfe");
     kitchenJamFrontend.addEventListener("click", () => {
         ipcRenderer.send("kjfe");
@@ -47,5 +46,20 @@ window.addEventListener('DOMContentLoaded', () => {
     virtualVibesBackend.addEventListener("click", () => {
         ipcRenderer.send("vvbe");
     })
-    }
-)
+    let crittersFrontend = document.getElementById("cash");
+    crittersFrontend.addEventListener("click", () => {
+        ipcRenderer.send("cash");
+    })
+    let bttbFrontend = document.getElementById("bttbfe")
+    crittersFrontend.addEventListener("click", () => {
+        ipcRenderer.send("bttbfe");
+    })
+    let bttbBackend = document.getElementById("bttbbe")
+    crittersFrontend.addEventListener("click", () => {
+        ipcRenderer.send("bttbbe");
+    })
+    let antonio = document.getElementById("antonio")
+    antonio.addEventListener("click", () => {
+        ipcRenderer.send("antonio");
+    })
+})
