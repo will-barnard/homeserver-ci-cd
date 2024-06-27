@@ -25,7 +25,7 @@ import org.thymeleaf.exceptions.TemplateInputException;
 public class FileUploadController {
 
 	private final StorageService storageService;
-	private VolumeData volumeData;
+	private VolumeData volumeData = new VolumeData();
 
 	@Autowired
 	public FileUploadController(StorageService storageService) {
@@ -43,7 +43,8 @@ public class FileUploadController {
 		StorageProperties properties2 = new StorageProperties(volumeData.getKitchenJamDist());
 		service.setStorageProperties(properties2);
 		service.store(file);
-		service.unzipDist();
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated kitchen jam frontend");
 	}
 
 	@PostMapping("/train-tracker-frontend")
@@ -57,7 +58,9 @@ public class FileUploadController {
 		StorageProperties properties2 = new StorageProperties(volumeData.getTrainTrackerDist());
 		service.setStorageProperties(properties2);
 		service.store(file);
-		service.unzipDist();
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated train tracker frontend");
+
 	}
 
 	@PostMapping("/virtual-vibes-frontend")
@@ -71,7 +74,129 @@ public class FileUploadController {
 		StorageProperties properties2 = new StorageProperties(volumeData.getVirtualVibesDist());
 		service.setStorageProperties(properties2);
 		service.store(file);
-		service.unzipDist();
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated virtual vibes frontend");
+
+	}
+
+	@PostMapping("/kitchen-jam-backend")
+	@ResponseBody
+	public void kitchenJamJarUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getKitchenJamJar());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated kitchen jam jar");
+
+	}
+
+	@PostMapping("/train-tracker-backend")
+	@ResponseBody
+	public void trainTrackerBackendUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getTrainTrackerBackend());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated train tracker backend jar");
+
+	}
+
+	@PostMapping("/train-tracker-ls")
+	@ResponseBody
+	public void trainTrackerLsUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getTrainTrackerLsService());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated train tracker ls jar");
+
+	}
+
+	@PostMapping("/train-tracker-run")
+	@ResponseBody
+	public void trainTrackerRunUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getTrainTrackerRunService());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated train tracker rs jar");
+
+	}
+
+	@PostMapping("/virtual-vibes-backend")
+	@ResponseBody
+	public void virtualVibesBackendUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getVirtualVibesJar());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated virtual vibes jar");
+
+	}
+
+	@PostMapping("/cash-critters")
+	@ResponseBody
+	public void cashCrittersDistUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getCashCrittersDist() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getCashCrittersDist());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated cash critters frontend");
+
+	}
+
+	@PostMapping("/bttb-frontend")
+	@ResponseBody
+	public void bttbDistUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getBttbDist() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getBttbDist());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated bttb frontend");
+
+	}
+
+	@PostMapping("/bttb-backend")
+	@ResponseBody
+	public void bttbBackendUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getBttbJar());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated bttb jar");
+
+	}
+
+	@PostMapping("/antonio")
+	@ResponseBody
+	public void antonioUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getAntonio() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getAntonio());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated antonio");
+
 	}
 
 	@ExceptionHandler(StorageFileNotFoundException.class)

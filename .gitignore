@@ -35,3 +35,6 @@ upload-dir
 
 Java/src/main/resources/application.properties
 Java/src/main/java/com/example/uploadingfiles/storage/VolumeData.java
+electron-app/endpoints.js
+electron-app/node_modules/
+electron-app/node_modules

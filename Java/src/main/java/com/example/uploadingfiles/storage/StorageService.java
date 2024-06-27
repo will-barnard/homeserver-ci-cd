@@ -12,7 +12,7 @@ public interface StorageService {
 
 	void store(MultipartFile file);
 
-	void unzipDist();
+	void unzip(String filename);
 
 	Stream<Path> loadAll();
 

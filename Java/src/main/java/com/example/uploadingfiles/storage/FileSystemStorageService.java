@@ -59,8 +59,8 @@ public class FileSystemStorageService implements StorageService {
 	}
 
 	@Override
-	public void unzipDist() {
-		try (java.util.zip.ZipFile zipFile = new ZipFile(rootLocation + "/dist.zip")) {
+	public void unzip(String filename) {
+		try (java.util.zip.ZipFile zipFile = new ZipFile(rootLocation + "/" + filename)) {
 			Enumeration<? extends ZipEntry> entries = zipFile.entries();
 			while (entries.hasMoreElements()) {
 				ZipEntry entry = entries.nextElement();
@@ -76,7 +76,7 @@ public class FileSystemStorageService implements StorageService {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Something went wront unzipping a dist folder");
+			System.out.println("Something went wront unzipping");
 		}
 	}
 

@@ -1,0 +1,21 @@
+{
+  "name": "homeserver-ci-cd-electron",
+  "version": "1.0.0",
+  "description": "Interface for updating deployed apps",
+  "main": "main.js",
+  "scripts": {
+    "test": "test",
+    "start": "electron ."
+  },
+  "author": "Will Barnard",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.1.0"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "axios": "^1.7.2",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security"
+  }
+}
