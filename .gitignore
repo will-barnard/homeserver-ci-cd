@@ -30,3 +30,8 @@ dependency-reduced-pom.xml
 README.html
  
 upload-dir
+
+# Config files #
+
+Java/src/main/resources/application.properties
+Java/src/main/java/com/example/uploadingfiles/storage/VolumeData.java
