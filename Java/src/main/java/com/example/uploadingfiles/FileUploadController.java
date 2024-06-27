@@ -44,7 +44,7 @@ public class FileUploadController {
 		service.setStorageProperties(properties2);
 		service.store(file);
 		service.unzip(file.getOriginalFilename());
-		System.out.println("updated kitchen jam frontend");
+		System.out.println("updated will-barnard.com");
 	}
 
 	@PostMapping("/kitchen-jam-frontend")
