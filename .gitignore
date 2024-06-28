@@ -38,3 +38,5 @@ Java/src/main/java/com/example/uploadingfiles/storage/VolumeData.java
 electron-app/endpoints.js
 electron-app/node_modules/
 electron-app/node_modules
+electron-app/out
+electron-app/out/

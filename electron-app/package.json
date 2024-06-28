@@ -5,16 +5,27 @@
   "main": "main.js",
   "scripts": {
     "test": "test",
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "author": "Will Barnard",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
     "electron": "^31.1.0"
   },
   "dependencies": {
     "archiver": "^7.0.1",
     "axios": "^1.7.2",
+    "electron-squirrel-startup": "^1.0.1",
     "form-data": "^4.0.0",
     "fs": "^0.0.1-security"
   }
