@@ -94,6 +94,86 @@ public class FileUploadController {
 
 	}
 
+	@PostMapping("/cash-critters")
+	@ResponseBody
+	public void cashCrittersDistUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getCashCrittersDist() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getCashCrittersDist());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated cash critters frontend");
+
+	}
+
+	@PostMapping("/bttb-frontend")
+	@ResponseBody
+	public void bttbDistUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getBttbDist() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getBttbDist());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated bttb frontend");
+
+	}
+
+	@PostMapping("/antonio")
+	@ResponseBody
+	public void antonioUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getAntonio() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getAntonio());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated antonio");
+
+	}
+
+	@PostMapping("/chess-lan")
+	@ResponseBody
+	public void chessLanUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getChessLan() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getChessLan());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated chess lan");
+
+	}
+
+	@PostMapping("/chess-vpn")
+	@ResponseBody
+	public void chessVpnUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getChessVpn() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getChessVpn());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated chess vpn");
+
+	}
+
 	@PostMapping("/kitchen-jam-backend")
 	@ResponseBody
 	public void kitchenJamJarUpload(@RequestParam("file") MultipartFile file) {
@@ -142,50 +222,6 @@ public class FileUploadController {
 
 	}
 
-	@PostMapping("/virtual-vibes-backend")
-	@ResponseBody
-	public void virtualVibesBackendUpload(@RequestParam("file") MultipartFile file) {
-
-		FileSystemStorageService service = new FileSystemStorageService();
-		StorageProperties properties = new StorageProperties(volumeData.getVirtualVibesJar());
-		service.setStorageProperties(properties);
-		service.store(file);
-		System.out.println("updated virtual vibes jar");
-
-	}
-
-	@PostMapping("/cash-critters")
-	@ResponseBody
-	public void cashCrittersDistUpload(@RequestParam("file") MultipartFile file) {
-		StorageProperties properties = new StorageProperties(volumeData.getCashCrittersDist() + "/foo");
-		FileSystemStorageService service = new FileSystemStorageService();
-		service.setStorageProperties(properties);
-		service.deleteAll();
-
-		StorageProperties properties2 = new StorageProperties(volumeData.getCashCrittersDist());
-		service.setStorageProperties(properties2);
-		service.store(file);
-		service.unzip(file.getOriginalFilename());
-		System.out.println("updated cash critters frontend");
-
-	}
-
-	@PostMapping("/bttb-frontend")
-	@ResponseBody
-	public void bttbDistUpload(@RequestParam("file") MultipartFile file) {
-		StorageProperties properties = new StorageProperties(volumeData.getBttbDist() + "/foo");
-		FileSystemStorageService service = new FileSystemStorageService();
-		service.setStorageProperties(properties);
-		service.deleteAll();
-
-		StorageProperties properties2 = new StorageProperties(volumeData.getBttbDist());
-		service.setStorageProperties(properties2);
-		service.store(file);
-		service.unzip(file.getOriginalFilename());
-		System.out.println("updated bttb frontend");
-
-	}
-
 	@PostMapping("/bttb-backend")
 	@ResponseBody
 	public void bttbBackendUpload(@RequestParam("file") MultipartFile file) {
@@ -198,19 +234,39 @@ public class FileUploadController {
 
 	}
 
-	@PostMapping("/antonio")
+	@PostMapping("/virtual-vibes-backend")
 	@ResponseBody
-	public void antonioUpload(@RequestParam("file") MultipartFile file) {
-		StorageProperties properties = new StorageProperties(volumeData.getAntonio() + "/foo");
-		FileSystemStorageService service = new FileSystemStorageService();
-		service.setStorageProperties(properties);
-		service.deleteAll();
+	public void virtualVibesBackendUpload(@RequestParam("file") MultipartFile file) {
 
-		StorageProperties properties2 = new StorageProperties(volumeData.getAntonio());
-		service.setStorageProperties(properties2);
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getVirtualVibesJar());
+		service.setStorageProperties(properties);
 		service.store(file);
-		service.unzip(file.getOriginalFilename());
-		System.out.println("updated antonio");
+		System.out.println("updated virtual vibes jar");
+
+	}
+
+	@PostMapping("/chess-api")
+	@ResponseBody
+	public void chessApiUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getChessApi());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated chess jar");
+
+	}
+
+	@PostMapping("/homeserver")
+	@ResponseBody
+	public void homeserverJarUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getHomeserver());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated homeserver jar");
 
 	}
 
@@ -218,5 +274,7 @@ public class FileUploadController {
 	public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
 		return ResponseEntity.notFound().build();
 	}
+
+
 
 }
