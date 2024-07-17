@@ -62,4 +62,20 @@ window.addEventListener('DOMContentLoaded', () => {
     antonio.addEventListener("click", () => {
         ipcRenderer.send("antonio");
     })
+    let chessLan = document.getElementById("chesslan")
+    chessLan.addEventListener("click", () => {
+        ipcRenderer.send("chesslan");
+    })
+    let chessVpn = document.getElementById("chessvpn")
+    chessVpn.addEventListener("click", () => {
+        ipcRenderer.send("chessvpn");
+    })
+    let chessBackend = document.getElementById("chessapi")
+    chessBackend.addEventListener("click", () => {
+        ipcRenderer.send("chessapi");
+    })
+    let homeserver = document.getElementById("homeserver")
+    homeserver.addEventListener("click", () => {
+        ipcRenderer.send("homeserver");
+    })
 })

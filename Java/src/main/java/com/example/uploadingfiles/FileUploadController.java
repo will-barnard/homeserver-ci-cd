@@ -142,7 +142,7 @@ public class FileUploadController {
 
 	}
 
-	@PostMapping("/chess-lan")
+	@PostMapping("/chess-frontend")
 	@ResponseBody
 	public void chessLanUpload(@RequestParam("file") MultipartFile file) {
 		StorageProperties properties = new StorageProperties(volumeData.getChessLan() + "/foo");

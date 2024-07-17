@@ -15,8 +15,8 @@ let config = {
 
 const createWindow = () => {
     const win = new BrowserWindow({
-      width: 500,
-      height: 1000,
+      width: 800,
+      height: 750,
       webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
         nodeIntegration: true,
@@ -69,7 +69,18 @@ ipcMain.on("bttbbe", () => {
 ipcMain.on("antonio", () => {
     sendFile(api.antonioFrontend, api.antonioDist, true)
 });
-
+ipcMain.on("chesslan", () => {
+    sendFile(api.chessFrontend, api.chessDist, true)
+});
+ipcMain.on("chessvpn", () => {
+    sendFile(api.chessVpn, api.chessDist, true)
+});
+ipcMain.on("chessapi", () => {
+    sendFile(api.chessBackend, api.chessJar, false)
+});
+ipcMain.on("homeserver", () => {
+    sendFile(api.homeserver, api.homeserverJar, false)
+});
 
 function sendFile(endpoint, file, zip) {
     if (zip) {

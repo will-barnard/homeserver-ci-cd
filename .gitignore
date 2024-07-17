@@ -40,3 +40,5 @@ electron-app/node_modules/
 electron-app/node_modules
 electron-app/out
 electron-app/out/
+
+Java/src/main/java/com/example/uploadingfiles/storage/PasswordSecret.java
