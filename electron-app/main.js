@@ -16,7 +16,7 @@ let config = {
 const createWindow = () => {
     const win = new BrowserWindow({
       width: 800,
-      height: 750,
+      height: 800,
       webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
         nodeIntegration: true,
@@ -80,6 +80,9 @@ ipcMain.on("chessapi", () => {
 });
 ipcMain.on("homeserver", () => {
     sendFile(api.homeserver, api.homeserverJar, false)
+});
+ipcMain.on("periodic", () => {
+    sendFile(api.periodicTable, api.periodicTableDist, true)
 });
 
 function sendFile(endpoint, file, zip) {

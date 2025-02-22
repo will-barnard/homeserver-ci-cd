@@ -51,11 +51,11 @@ window.addEventListener('DOMContentLoaded', () => {
         ipcRenderer.send("cash");
     })
     let bttbFrontend = document.getElementById("bttbfe")
-    crittersFrontend.addEventListener("click", () => {
+    bttbFrontend.addEventListener("click", () => {
         ipcRenderer.send("bttbfe");
     })
     let bttbBackend = document.getElementById("bttbbe")
-    crittersFrontend.addEventListener("click", () => {
+    bttbBackend.addEventListener("click", () => {
         ipcRenderer.send("bttbbe");
     })
     let antonio = document.getElementById("antonio")
@@ -77,5 +77,9 @@ window.addEventListener('DOMContentLoaded', () => {
     let homeserver = document.getElementById("homeserver")
     homeserver.addEventListener("click", () => {
         ipcRenderer.send("homeserver");
+    })
+    let periodic = document.getElementById("periodic")
+    periodic.addEventListener("click", () => {
+        ipcRenderer.send("periodic");
     })
 })

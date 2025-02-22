@@ -174,6 +174,22 @@ public class FileUploadController {
 
 	}
 
+	@PostMapping("/periodic-table")
+	@ResponseBody
+	public void periodicTableDistUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getPeriodicTable() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getPeriodicTable());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated periodic table frontend");
+
+	}
+
 	@PostMapping("/kitchen-jam-backend")
 	@ResponseBody
 	public void kitchenJamJarUpload(@RequestParam("file") MultipartFile file) {
@@ -274,6 +290,8 @@ public class FileUploadController {
 	public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
 		return ResponseEntity.notFound().build();
 	}
+
+
 
 
 
