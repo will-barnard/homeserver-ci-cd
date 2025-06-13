@@ -16,7 +16,7 @@ let config = {
 const createWindow = () => {
     const win = new BrowserWindow({
       width: 800,
-      height: 800,
+      height: 900,
       webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
         nodeIntegration: true,
@@ -83,6 +83,12 @@ ipcMain.on("homeserver", () => {
 });
 ipcMain.on("periodic", () => {
     sendFile(api.periodicTable, api.periodicTableDist, true)
+});
+ipcMain.on("vbfe", () => {
+    sendFile(api.vocabFrontend, api.vocabDist, true)
+});
+ipcMain.on("vbbe", () => {
+    sendFile(api.vocabBackend, api.vocabJar, false)
 });
 
 function sendFile(endpoint, file, zip) {

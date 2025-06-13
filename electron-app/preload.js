@@ -82,4 +82,12 @@ window.addEventListener('DOMContentLoaded', () => {
     periodic.addEventListener("click", () => {
         ipcRenderer.send("periodic");
     })
+    let vocabFrontend = document.getElementById("vbfe");
+    vocabFrontend.addEventListener("click", () => {
+        ipcRenderer.send("vbfe");
+    })
+    let vocabBackend = document.getElementById("vbbe");
+    vocabBackend.addEventListener("click", () => {
+        ipcRenderer.send("vbbe");
+    })
 })

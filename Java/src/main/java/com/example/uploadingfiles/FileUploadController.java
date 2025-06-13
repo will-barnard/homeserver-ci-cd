@@ -286,6 +286,34 @@ public class FileUploadController {
 
 	}
 
+	@PostMapping("/vocab-frontend")
+	@ResponseBody
+	public void vocabDistUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getVocabDist() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getVocabDist());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated vocab frontend");
+
+	}
+
+	@PostMapping("/vocab-backend")
+	@ResponseBody
+	public void vocabJarUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getVocabJar());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated vocab jar");
+
+	}
+
 	@ExceptionHandler(StorageFileNotFoundException.class)
 	public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
 		return ResponseEntity.notFound().build();
