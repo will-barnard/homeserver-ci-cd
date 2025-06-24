@@ -314,6 +314,36 @@ public class FileUploadController {
 
 	}
 
+	@PostMapping("/nate-frontend")
+	@ResponseBody
+	public void nateDistUpload(@RequestParam("file") MultipartFile file) {
+		StorageProperties properties = new StorageProperties(volumeData.getVocabDist() + "/foo");
+		FileSystemStorageService service = new FileSystemStorageService();
+		service.setStorageProperties(properties);
+		service.deleteAll();
+
+		StorageProperties properties2 = new StorageProperties(volumeData.getNateDist());
+		service.setStorageProperties(properties2);
+		service.store(file);
+		service.unzip(file.getOriginalFilename());
+		System.out.println("updated nate frontend");
+
+	}
+
+	@PostMapping("/nate-backend")
+	@ResponseBody
+	public void nateJarUpload(@RequestParam("file") MultipartFile file) {
+
+		FileSystemStorageService service = new FileSystemStorageService();
+		StorageProperties properties = new StorageProperties(volumeData.getNateJar());
+		service.setStorageProperties(properties);
+		service.store(file);
+		System.out.println("updated nate jar");
+
+	}
+
+
+
 	@ExceptionHandler(StorageFileNotFoundException.class)
 	public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
 		return ResponseEntity.notFound().build();

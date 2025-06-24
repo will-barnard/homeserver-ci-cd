@@ -33,12 +33,13 @@ upload-dir
 
 # Config files #
 
-Java/src/main/resources/application.properties
-Java/src/main/java/com/example/uploadingfiles/storage/VolumeData.java
+homeserver-ci-cd/src/main/resources/application.properties
+homeserver-ci-cd/src/main/java/com/example/uploadingfiles/storage/VolumeData.java
 electron-app/endpoints.js
 electron-app/node_modules/
 electron-app/node_modules
 electron-app/out
 electron-app/out/
 
-Java/src/main/java/com/example/uploadingfiles/storage/PasswordSecret.java
+homeserver-ci-cd/src/main/java/com/example/uploadingfiles/storage/PasswordSecret.java
+homesesrver-ci-cd/src/main/resources/application.properties

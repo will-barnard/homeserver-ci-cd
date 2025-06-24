@@ -90,6 +90,12 @@ ipcMain.on("vbfe", () => {
 ipcMain.on("vbbe", () => {
     sendFile(api.vocabBackend, api.vocabJar, false)
 });
+ipcMain.on("snfe", () => {
+    sendFile(api.nateFrontend, api.nateDist, true)
+});
+ipcMain.on("snbe", () => {
+    sendFile(api.nateBackend, api.nateJar, false)
+});
 
 function sendFile(endpoint, file, zip) {
     if (zip) {

@@ -90,4 +90,12 @@ window.addEventListener('DOMContentLoaded', () => {
     vocabBackend.addEventListener("click", () => {
         ipcRenderer.send("vbbe");
     })
+    let nateFrontend = document.getElementById("snfe");
+    nateFrontend.addEventListener("click", () => {
+        ipcRenderer.send("snfe");
+    })
+    let nateBackend = document.getElementById("snbe");
+    nateBackend.addEventListener("click", () => {
+        ipcRenderer.send("snbe");
+    })
 })

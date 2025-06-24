@@ -1,0 +1,5 @@
+src/main/resources/application.properties
+
+src/main/java/com/example/uploadingfiles/storage/VolumeData.java
+
+src/main/java/com/example/uploadingfiles/storage/PasswordSecret.java
