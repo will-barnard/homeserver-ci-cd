@@ -1,6 +1,4 @@
-package com.example.uploadingfiles.storage;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
+package com.example.uploadingfiles.model;
 
 public class StorageProperties {
 

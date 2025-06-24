@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.storage;
+package com.example.uploadingfiles.service;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -11,13 +11,14 @@ import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import com.example.uploadingfiles.exception.StorageException;
+import com.example.uploadingfiles.exception.StorageFileNotFoundException;
+import com.example.uploadingfiles.model.StorageProperties;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -28,7 +29,7 @@ public class FileSystemStorageService implements StorageService {
 	public void setStorageProperties(StorageProperties properties) {
         
         if(properties.getLocation().trim().length() == 0){
-            throw new StorageException("File upload location can not be Empty."); 
+            throw new StorageException("File upload location can not be Empty.");
         }
 
 		this.rootLocation = Paths.get(properties.getLocation());

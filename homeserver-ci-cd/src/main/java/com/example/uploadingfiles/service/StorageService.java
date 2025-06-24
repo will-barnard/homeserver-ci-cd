@@ -1,5 +1,6 @@
-package com.example.uploadingfiles.storage;
+package com.example.uploadingfiles.service;
 
+import com.example.uploadingfiles.model.StorageProperties;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 

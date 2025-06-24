@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.storage;
+package com.example.uploadingfiles.exception;
 
 public class StorageException extends RuntimeException {
 

@@ -1,4 +1,7 @@
-FROM openjdk:latest
-ADD homeserver-ci-cd-1.0.jar app.jar
+FROM openjdk:17-jdk-bullseye
+
+RUN apt-get update && apt-get install -y docker.io
+
+COPY homeserver-ci-cd-1.0.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "/app.jar"]
